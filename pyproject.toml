@@ -10,7 +10,6 @@ requires-python = ">=3.14"
 dependencies = [
     "python-dotenv>=1.2.4",
     "questionary>=2.1.1",
-    "requests>=2.34.2",
     "rich>=15.0.0",
     "tmdbsimple>=2.9.8",
 ]
