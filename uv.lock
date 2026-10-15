@@ -114,6 +114,7 @@ dependencies = [
     { name = "questionary" },
     { name = "requests" },
     { name = "rich" },
+    { name = "tmdbsimple" },
 ]
 
 [package.metadata]
@@ -122,6 +123,7 @@ requires-dist = [
     { name = "questionary", specifier = ">=2.1.1" },
     { name = "requests", specifier = ">=2.34.2" },
     { name = "rich", specifier = ">=15.0.0" },
+    { name = "tmdbsimple", specifier = ">=2.9.8" },
 ]
 
 [[package]]
@@ -222,6 +224,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz", hash = "sha256:edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36", size = 230680, upload-time = "2026-04-12T08:24:00.75Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/82/3b/64d4899d73f91ba49a8c18a8ff3f0ea8f1c1d75481760df8c68ef5235bf5/rich-15.0.0-py3-none-any.whl", hash = "sha256:33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb", size = 310654, upload-time = "2026-04-12T08:24:02.83Z" },
+]
+
+[[package]]
+name = "tmdbsimple"
+version = "2.9.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/26/f4/275cbab0d90819bb902bb3cbc8b9ba48d0556a05b7f6f818b908e9366fbf/tmdbsimple-2.9.8.tar.gz", hash = "sha256:746904be2d5db535a74ca2ca0f3a4d3db2d7173b5b98161fa772c303a4dca0a0", size = 42963, upload-time = "2026-07-30T05:22:23.171Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/84/d2/70bdf8b6ab91eeb3c52a8c5839dd68040f11a7aa2ca23cff5c96855834dc/tmdbsimple-2.9.8-py3-none-any.whl", hash = "sha256:16055d1f8562470265b27df344ca60561573b19513af2df15bf82e677d1034fb", size = 40268, upload-time = "2026-07-30T05:22:22.118Z" },
 ]
 
 [[package]]
