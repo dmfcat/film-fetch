@@ -1,7 +1,4 @@
-# TODO: Setup questionary form
 # NOTE: Make sure requests don't go over API limit
-# TODO: Do API query for cast/crew
-# TODO: Show user cast/crew results get to confirm
 # TODO: Do main API query
 # TODO: Filter results
 # TODO: Print results
@@ -12,6 +9,9 @@
 # TODO: Add reorder field to results?
 # TODO: Add export option to results, export as .csv?
 
+from input import get_person
+
 
 def main() -> None:
     print("Hello world")
+    get_person()
