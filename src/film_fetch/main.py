@@ -1,9 +1,8 @@
 # NOTE: Make sure requests don't go over API limit (Shouldn't happen because limit is quite generous)
-# TODO: Enchnce formatted output (more colours?)
-# TODO: Add option to results allowing user to query again or quit
 # TODO: Add 'first start' option, prompting user to get their own API key
 # NOTE: Extra features?
-# TODO: Add reorder field to results?
+# TODO: Enchnce formatted output (more colours?)
+# TODO: Add option to results allowing user to query again, reorder or quit
 # TODO: Add export option to results, export as .csv?
 
 from .output import print_formatted
