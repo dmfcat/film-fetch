@@ -21,6 +21,7 @@ def get_person() -> list:
 # Ask user to confirm selection if more than 1 result
 # NOTE: Could pass the entire person json back here to prevent having to query the API twice
 # NOTE: Might not get an exhaustive list of films from the first query however
+# BUG: CTRL+C out of the selection will result in a ValueError from None
 def confirm_person(people) -> dict:
     if len(people) > 1:
         person = questionary.select(
