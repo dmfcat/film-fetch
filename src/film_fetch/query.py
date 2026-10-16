@@ -30,18 +30,7 @@ def query_person(person) -> list:
     return res
 
 
+# Fetch filmography based on person_id
 # NOTE: Will return unreleased films (potentially unwanted)
-def query_films(person, genres) -> list:
-    # Fetch filmography based on person_id
-    filmography = tmdb.People(person.get("id")).movie_credits().get("cast")
-
-    res = []
-    # Filter filmography based on arguments after person_id
-    for film in filmography:
-        if any(genre in genres for genre in film.get("genre_ids")):
-            res.append(film)
-
-    if res == []:
-        raise ValueError("No films found based on selection")
-
-    return res
+def query_films(person) -> list:
+    return tmdb.People(person.get("id")).movie_credits().get("cast")
