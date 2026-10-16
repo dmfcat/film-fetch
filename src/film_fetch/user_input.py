@@ -3,7 +3,7 @@ import sys
 import questionary
 from questionary import Choice
 
-from .filter import filter_films
+from .filter import filter_films, sort_films
 from .genre_ids import GENRES
 from .query import query_films, query_person
 
@@ -33,8 +33,6 @@ def confirm_person(people) -> dict:
     else:
         person = people[0]
 
-    print(f"You have selected {person}")
-
     return person
 
 
@@ -49,28 +47,27 @@ def get_info(person) -> list:
         "Enter year: (leave blank for none)", validate=validate_year
     ).ask()
 
-    # Convert to year to None if empty
+    # Convert year to None if empty
     if year == "":
         year = None
 
-    # TODO: Ordering
-    # NOTE: Probably a better way to do this, shouldn't be using weird unicode symbols in strings
+    # Ordering
     order = questionary.select(
         "Select order:",
         choices=[
-            "Year ↑",
-            "Year ↓",
-            "Popularity ↑",
-            "Popularity ↓",
-            "Rating ↑",
-            "Rating ↓",
+            "Year (Ascending)",
+            "Year (Descending)",
+            "Rating (Ascending)",
+            "Rating (Descending)",
+            "Popularity (Ascending)",
+            "Popularity (Descending)",
         ],
-    )
+    ).ask()
 
     # Query, then filter based on selection, errors if nothing found
     try:
-        films = query_films(person)
-        return filter_films(films, genres, year, order)
+        films = filter_films(query_films(person), genres, year)
+        return sort_films(films, order)
     except ValueError as e:
         print(e)
         sys.exit(1)

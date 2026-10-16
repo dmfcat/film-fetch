@@ -11,7 +11,7 @@ def print_raw(person, films):
         print(f"{film.get('title')} ({film.get('release_date')})")
 
 
-# Table formatted output with rich
+# Table formatted output
 def print_formatted(person, films):
     table = Table(
         title=f"*** FILMS STARRING: {person.get('name')} ***", highlight=True, leading=1

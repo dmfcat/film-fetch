@@ -1,6 +1,5 @@
 # NOTE: Make sure requests don't go over API limit (Shouldn't happen because limit is quite generous)
-# TODO: More columns in table (popularity, rating, budget, box office, etc...)
-# TODO: Add more options? Ordering, release year, etc...
+# TODO: Enchnce formatted output (more colours?)
 # TODO: Add option to results allowing user to query again or quit
 # TODO: Add 'first start' option, prompting user to get their own API key
 # NOTE: Extra features?
