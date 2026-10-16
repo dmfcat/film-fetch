@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Simple CLI TUI tool that returns a list of films containing specified cast/crew and genres"
 readme = "README.md"
 authors = [
-    { name = "david", email = "david@dmfcat.net" }
+    { name = "dmfcat", email = "david@dmfcat.net" }
 ]
 requires-python = ">=3.14"
 dependencies = [
@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-film-fetch = "film_fetch:main"
+film-fetch = "film_fetch.main:run_app"
 
 [build-system]
 requires = ["uv_build>=0.12.19,<0.13.0"]
