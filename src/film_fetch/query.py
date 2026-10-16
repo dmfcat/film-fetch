@@ -8,14 +8,14 @@ load_dotenv()
 tmdb.API_KEY = os.environ["API_KEY"]
 
 
-# NOTE: Will return an arbitrary amount of people, might want to limit to 5
+# Fetch list of people, depending on the search term
 def query_person(person) -> list:
     search = tmdb.Search()
     response = search.person(query=person)
 
-    # Append results to list
     res = []
-    for r in response.get("results"):
+    # NOTE: Max of 10 people included in the selection
+    for r in response.get("results")[:10]:
         res.append(
             {
                 "id": r.get("id"),

@@ -9,7 +9,7 @@ def filter_films(filmography, genres, year) -> list:
     res = []
 
     # Filter filmography based on arguments after person_id
-    #  NOTE: Violating DRY here
+    # NOTE: Violating DRY here
     if year == None:
         for film in filmography:
             if any(genre in genres for genre in film.get("genre_ids")):
