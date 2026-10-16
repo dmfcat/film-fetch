@@ -30,6 +30,7 @@ def query_person(person) -> list:
     return res
 
 
+# NOTE: Will return unreleased films (potentially unwanted)
 def query_films(person, genres) -> list:
     # Fetch filmography based on person_id
     filmography = tmdb.People(person.get("id")).movie_credits().get("cast")
