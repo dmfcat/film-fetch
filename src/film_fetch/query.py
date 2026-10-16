@@ -24,8 +24,8 @@ def query_person(person) -> list:
             }
         )
 
-    if res == []:
-        raise ValueError(f"No results for {person} found")
+    if not res:
+        raise ValueError(f"No results for '{person}' found")
 
     return res
 
