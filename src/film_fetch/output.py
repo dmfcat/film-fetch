@@ -1,6 +1,8 @@
 from rich.console import Console
 from rich.table import Table
 
+from .genre_ids import GENRE_IDS
+
 
 # Plaintext output
 def print_raw(person, films):
@@ -11,8 +13,6 @@ def print_raw(person, films):
 
 # Table formatted output with rich
 def print_formatted(person, films):
-    print(films)
-
     table = Table(
         title=f"*** FILMS STARRING: {person.get('name')} ***", highlight=True, leading=1
     )
@@ -24,12 +24,15 @@ def print_formatted(person, films):
     table.add_column("Popularity")
 
     # Add films to table
-    # TODO: Should get names for the ids
     for film in films:
+        # Convert genre ids to names
+        genres = ", ".join([GENRE_IDS[id] for id in film.get("genre_ids")])
+
+        # Add rows to table
         table.add_row(
             film.get("release_date"),
             film.get("title"),
-            str(film.get("genre_ids")),
+            genres,
             str(film.get("vote_average")),
             str(film.get("popularity")),
         )
