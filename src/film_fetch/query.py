@@ -35,9 +35,19 @@ def query_person(person) -> list:
 # NOTE: Will return unreleased films (potentially unwanted)
 def query_films(person) -> list:
     try:
-        return tmdb.People(person.get("id")).movie_credits().get("cast")
+        if person.get("dept") != "Acting":
+            films = tmdb.People(person.get("id")).movie_credits().get("crew")
+            # NOTE: Need to filter by department, otherwise any sort of crew credit gets included
+            response = [
+                film for film in films if film.get("department") == person.get("dept")
+            ]
+        else:
+            response = tmdb.People(person.get("id")).movie_credits().get("cast")
+
     except requests.exceptions.HTTPError:
         raise requests.exceptions.HTTPError("Invalid API key")
+
+    return response
 
 
 # Tries to load API key from .env
