@@ -112,6 +112,7 @@ source = { editable = "." }
 dependencies = [
     { name = "python-dotenv" },
     { name = "questionary" },
+    { name = "requests" },
     { name = "rich" },
     { name = "tmdbsimple" },
 ]
@@ -120,6 +121,7 @@ dependencies = [
 requires-dist = [
     { name = "python-dotenv", specifier = ">=1.2.4" },
     { name = "questionary", specifier = ">=2.1.1" },
+    { name = "requests", specifier = ">=2.34.2" },
     { name = "rich", specifier = ">=15.0.0" },
     { name = "tmdbsimple", specifier = ">=2.9.8" },
 ]
