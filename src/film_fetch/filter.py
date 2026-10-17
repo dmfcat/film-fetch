@@ -1,3 +1,4 @@
+# Maps sort options to their associated key
 SORT_OPTIONS = {
     "Year": "release_date",
     "Rating": "vote_average",
@@ -34,7 +35,7 @@ def sort_films(films, order) -> list:
     order = order.split()
     ele = SORT_OPTIONS[order[0]]
 
-    if "(Ascending)" == order[1]:
+    if order[1] == "(Ascending)":
         films.sort(key=lambda film: film[ele])
     else:
         films.sort(key=lambda film: film[ele], reverse=True)
