@@ -56,12 +56,12 @@ def get_info(person) -> list:
     order = questionary.select(
         "Select order:",
         choices=[
-            "Year (Ascending)",
             "Year (Descending)",
-            "Rating (Ascending)",
+            "Year (Ascending)",
             "Rating (Descending)",
-            "Popularity (Ascending)",
+            "Rating (Ascending)",
             "Popularity (Descending)",
+            "Popularity (Ascending)",
         ],
     ).ask()
 
