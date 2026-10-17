@@ -6,7 +6,7 @@ from .genre_ids import GENRE_IDS
 
 # Plaintext output
 def print_raw(person, films) -> None:
-    print(f"*** FILMS STARRING: {person.get('name')} ***")
+    print(f"\n***** FILMS STARRING: {person.get('name')} *****")
     for film in films:
         print(f"{film.get('title')} ({film.get('release_date')})")
 
@@ -14,7 +14,7 @@ def print_raw(person, films) -> None:
 # Table formatted output
 def print_formatted(person, films) -> None:
     table = Table(
-        title=f"***** FILMS STARRING: {person.get('name')} *****",
+        title=f"\n***** FILMS STARRING: {person.get('name')} *****",
         highlight=True,
         leading=1,
     )
