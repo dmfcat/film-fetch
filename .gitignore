@@ -11,3 +11,7 @@ wheels/
 
 # Environment variables
 .env
+
+# VHS files
+demo.gif
+demo.tape
