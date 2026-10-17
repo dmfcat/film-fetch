@@ -1,14 +1,17 @@
 import os
 import sys
 
+import requests
 import tmdbsimple as tmdb
 from dotenv import load_dotenv
 
 
 # Fetch list of people, depending on the search term
-# BUG: Will crash if invalid API key, need try except
 def query_person(person) -> list:
-    response = tmdb.Search().person(query=person)
+    try:
+        response = tmdb.Search().person(query=person)
+    except requests.exceptions.HTTPError:
+        raise requests.exceptions.HTTPError("Invalid API key")
 
     res = []
     # NOTE: Max of 10 people included in the selection
@@ -29,10 +32,12 @@ def query_person(person) -> list:
 
 
 # Fetch filmography based on person_id
-# BUG: Doesn't grab directorial credits (check for Directing job in movie_credits() ? person job is in "known_for_department")
 # NOTE: Will return unreleased films (potentially unwanted)
 def query_films(person) -> list:
-    return tmdb.People(person.get("id")).movie_credits().get("cast")
+    try:
+        return tmdb.People(person.get("id")).movie_credits().get("cast")
+    except requests.exceptions.HTTPError:
+        raise requests.exceptions.HTTPError("Invalid API key")
 
 
 # Tries to load API key from .env
