@@ -40,7 +40,7 @@ uv run film-fetch
 
 See the below UML sequence diagram for an overview of what this app does:
 
-[Insert the sequence diagram here]
+<img width="533" height="934" alt="seqdiagram" src="https://github.com/user-attachments/assets/84d49380-2588-409a-8b8a-48b941656dc0" />
 
 For a breakdown of what each file does:
 
@@ -62,14 +62,14 @@ Some future improvements ideas are currently in the comments of `main.py`, to re
 
 ## Demo Video
 
-[Insert demo video here]
+<img width="1200" height="600" alt="demo" src="https://github.com/user-attachments/assets/e133642d-6b3e-4b69-ae41-9e3a9ca0c47d" />
 
 ## Third Party Dependencies
 
-[python-dotenv](https://github.com/theskumar/python-dotenv)
-[questionary](https://github.com/tmbo/questionary)
-[rich](https://github.com/Textualize/rich)
-[tmdbsimple](https://github.com/celiao/tmdbsimple)
+- [python-dotenv](https://github.com/theskumar/python-dotenv)
+- [questionary](https://github.com/tmbo/questionary)
+- [rich](https://github.com/Textualize/rich)
+- [tmdbsimple](https://github.com/celiao/tmdbsimple)
 
 ## Licence
 
