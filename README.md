@@ -40,7 +40,7 @@ uv run film-fetch
 
 See the below UML sequence diagram for an overview of what this app does:
 
-<img width="533" height="934" alt="seqdiagram" src="https://github.com/user-attachments/assets/84d49380-2588-409a-8b8a-48b941656dc0" />
+<img width="533" height="934" alt="sequence diagram" src="https://github.com/user-attachments/assets/e3d4cb62-a182-4729-9c5d-64d2eb1857a0" />
 
 For a breakdown of what each file does:
 
@@ -68,7 +68,7 @@ A few additional improvements include:
 
 ## Demo Video
 
-<img width="1200" height="600" alt="demo" src="https://github.com/user-attachments/assets/e133642d-6b3e-4b69-ae41-9e3a9ca0c47d" />
+[demo.webm](https://github.com/user-attachments/assets/2270c42b-d9c8-41dc-97bc-3b2c37db4412)
 
 ## Third Party Dependencies
 
