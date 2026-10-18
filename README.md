@@ -1,8 +1,8 @@
 ## Film Fetch
 
-CLI tool that gets the filtered filmography based on cast/crew, genres and release year. Results can be ordered by popularity, ratings or release year.
+CLI tool that gets the filtered filmography based on cast/crew, genres, and release year. Results can be ordered by popularity, ratings, or release year.
 
-This tool offers an easy way to lookup the filmography of any actor, director, or other crew from the terminal and outputs an easily readable table.
+This tool offers an easy way to look up the filmography of any actor, director, or other crew from the terminal and outputs an easily readable table. I consider myself both a film buff and a fan of the terminal, which is why I opted for a CLI tool.
 
 ## Running
 
@@ -24,7 +24,7 @@ uv run film-fetch
 > [!NOTE]
 > You need your own API key to use this app. You can obtain your own key for free from TMDB.
 >
-> 1. Sign-up for a TMDB account: https://www.themoviedb.org/signup
+> 1. Sign up for a TMDB account: https://www.themoviedb.org/signup
 > 2. Request a free personal API key: https://www.themoviedb.org/settings/api
 > 3. Go to the API settings and copy and paste your `API Key` into `.env`
 >
@@ -44,21 +44,27 @@ See the below UML sequence diagram for an overview of what this app does:
 
 For a breakdown of what each file does:
 
-- [`main.py`](src/film_fetch/main.py) is responsible for running all the functions in every file.
-- [`user_input.py`](src/film_fetch/user_input.py) is responsible for allowing the user to enter information. [questionary](https://github.com/tmbo/questionary) is used to assist the user in entering information. The tool first asks for cast/crew, if multiple matches for a search are found the user is presented a list to select from. If no matches are found the app terminates early. After this the user then picks what genres and release year they want to search for. They are also given an option to choose what order the resulting table is in.
-- [`query.py`](src/film_fetch/query.py) is responsible for communicating with the TMDB REST API, [tmdbsimple](https://github.com/celiao/tmdbsimple) is used as a wrapper for this API. Information the user inputs from `user_input.py` is used for the queries. The API is queried twice, first to obtain a list of people, and then to obtain the entire filmography of the selected person. Before the tool does anything, however, it first 'loads' the API key using [python-dotenv](https://github.com/theskumar/python-dotenv). If the API key doesn't exist the app terminates early and the user is directed towards this README to fix the problem.
-- [`filter.py`](src/film_fetch/filter.py) filters the list of films obtained from `query.py`, the filmography obtained from the second query is filtered depending on the selected genres and release year. The code for sorting the filmography is also in this file.
-- [`output.py`](src/film_fetch/output.py) contains the code for outputing the filtered filmography. [rich](https://github.com/Textualize/rich) is used for formatting, the outputted filmography is in a table.
-- [`genre_ids.py`](src/film_fetch/genre_ids.py) contains two constants, one mapping genre names to their TMDB id number and other doing the opposite. These constants are used by `filter.py` and `output.py`.
+- [`main.py`](src/film_fetch/main.py) handles running all the functions in every file.
+- [`user_input.py`](src/film_fetch/user_input.py) handles allowing the user to enter information. [questionary](https://github.com/tmbo/questionary) is used for assisting the user in entering information. The tool first asks for cast/crew, if multiple matches for a search are found the user is presented a list to select from. If no matches are found the app terminates early. After this the user then picks what genres and release year they want to search for. They are also given an option to choose what order the resulting table is in.
+- [`query.py`](src/film_fetch/query.py) handles communicating with the TMDB REST API, [tmdbsimple](https://github.com/celiao/tmdbsimple) is used as a wrapper for this API. Information the user inputs from `user_input.py` is used for the queries. The API is queried twice, first to get a list of people, and then to get the entire filmography of the selected person. Before the tool does anything, however, it first 'loads' the API key using [python-dotenv](https://github.com/theskumar/python-dotenv). If the API key doesn't exist the app terminates early and the user is directed towards this README to fix the problem.
+- [`filter.py`](src/film_fetch/filter.py) filters the list of films obtained from `query.py`, based on the selected genres and release year. The code for sorting the filmography is also in this file.
+- [`output.py`](src/film_fetch/output.py) contains the code for outputting the filtered filmography. [rich](https://github.com/Textualize/rich) is used for formatting, the outputted filmography is in a table.
+- [`genre_ids.py`](src/film_fetch/genre_ids.py) contains two constants, one mapping genre names to their TMDB ID number and other doing the opposite. These constants are used by `filter.py` and `output.py`.
 
 ## Future Improvements
 
-Some future improvements ideas are currently in the comments of `main.py`, to reiterate:
+A few additional improvements include:
 
-- Enhanced table output (e.g. more colours, ASCII art, unicode star symbols in place of number ratings (i.e. ★ and ☆), more useful popularity output (the numbers could be confusing))
+- Fixing the bug that causes the app to crash if you CTRL+C out of a selection menu. E.g. CTRL+C-ing out of the cast/crew confirmation menu leads to a `None` value getting passed and causing an error
+- Adding unitests to try and catch any more bugs
+- Ability to customise the output table (possibly via `.yaml` or `.toml`)
+- Improved ratings, ideally ratings would be weighted to account for `vote_count` and `vote_average`. Highly rated films with a few dozen ratings shouldn't out rank films with 10000s of ratings.
+- Enhanced table output (e.g. more colours, ASCII art, Unicode star symbols in place of number ratings (i.e. ★ and ☆), more useful popularity output (the numbers could be confusing))
+- More filters, user should be able to filter out unreleased films or films without a release date.
+- Add the option to search for films containing two or more cast/crew
 - Additional options after generating the table (e.g. ability to reorder, or create a new query)
 - Add an export option to the above options, so the user can generate `.csv` or `.pdf` file based on the output
-- Add the option to search for films containing two or more cast/crew
+- Further code optimisation, some functions have repeated code
 
 ## Demo Video
 
@@ -66,10 +72,11 @@ Some future improvements ideas are currently in the comments of `main.py`, to re
 
 ## Third Party Dependencies
 
-- [python-dotenv](https://github.com/theskumar/python-dotenv)
-- [questionary](https://github.com/tmbo/questionary)
-- [rich](https://github.com/Textualize/rich)
-- [tmdbsimple](https://github.com/celiao/tmdbsimple)
+- [`python-dotenv`](https://github.com/theskumar/python-dotenv)
+- [`questionary`](https://github.com/tmbo/questionary)
+- [`rich`](https://github.com/Textualize/rich)
+- [`tmdbsimple`](https://github.com/celiao/tmdbsimple)
+- [`requests`](https://github.com/psf/requests)
 
 ## Licence
 
