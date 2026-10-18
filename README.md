@@ -15,7 +15,13 @@ git clone https://github.com/dmfcat/film-fetch
 cd film-fetch
 ```
 
-2. Run the application
+2. Install dependencies
+
+```bash
+uv sync
+```
+
+3. Run the application
 
 ```bash
 uv run film-fetch
