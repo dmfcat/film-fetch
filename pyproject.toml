@@ -1,7 +1,7 @@
 [project]
 name = "film-fetch"
 version = "0.1.0"
-description = "Simple CLI TUI tool that returns a list of films containing specified cast/crew and genres"
+description = "Simple CLI tool that returns a list of films containing specified cast/crew and genres"
 readme = "README.md"
 authors = [
     { name = "dmfcat", email = "david@dmfcat.net" }
