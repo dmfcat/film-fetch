@@ -36,7 +36,7 @@ uv run film-fetch
 >
 > An example `.env` file can be found in [`.env.example`](.env.example). Change the placeholder `API_KEY` variable to your key and rename `.env.example` to `.env`
 >
-> You can optionally create your own `.env` file from within the `film-fetch` directory, replacing `YOURKEY` with your personal key, like so:
+> You can optionally create your own `.env` file from the root directory, replacing `YOURKEY` with your personal key, like so:
 >
 > ```bash
 > echo "API_KEY = YOURKEY" > .env
