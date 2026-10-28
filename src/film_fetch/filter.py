@@ -28,9 +28,7 @@ def filter_films(filmography, genres, year) -> list:
     if res == []:
         raise ValueError("No films found based on selection")
 
-    add_weighted_ratings(res)
-
-    return res
+    return add_weighted_ratings(res)
 
 
 # Adds weighted Bayesian average (v/(v+m) * R)+(m/(v+m) * C)
