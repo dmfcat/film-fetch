@@ -1,3 +1,5 @@
+from math import ceil, floor
+
 from rich.console import Console
 from rich.table import Table
 
@@ -45,9 +47,9 @@ def print_formatted(person, films) -> None:
 
 # Converts rating to stars
 def get_stars(avg) -> str:
-    rounded_avg = round(avg)
+    rounded_avg = ceil(avg)
 
-    res = "★" * (rounded_avg // 2)
+    res = "★" * floor(rounded_avg / 2)
     if rounded_avg % 2:
         res += "½"
 
