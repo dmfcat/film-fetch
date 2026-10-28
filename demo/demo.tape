@@ -1,7 +1,8 @@
 # Tape file for generating demo video using VHS
+# Run `vhs demo/demo.tape` from root to generate new file
 
 # Config
-Output demo.gif
+Output demo/demo.gif
 Set Shell "fish"
 Set Theme "Catppuccin Frappe"
 Set FontSize 14
