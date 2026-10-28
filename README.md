@@ -61,7 +61,6 @@ For a breakdown of what each file does:
 
 A few additional improvements include:
 
-- Fixing the bug that causes the app to crash if you CTRL+C out of a selection menu (e.g. CTRL+C-ing out of the cast/crew confirmation menu leads to a `None` value getting passed and causing an error).
 - Adding unitests to try and catch any more bugs.
 - Ability to customise the output table (possibly via `.yaml` or `.toml`).
 - Enhanced table output (e.g. more colours, ASCII art, more useful popularity output (the numbers could be confusing)).
