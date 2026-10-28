@@ -35,9 +35,20 @@ def print_formatted(person, films) -> None:
             film.get("release_date"),
             film.get("title"),
             genres,
-            str(film.get("vote_average")),
+            get_stars(film.get("weighted_average")),
             str(film.get("popularity")),
         )
 
     console = Console()
     console.print(table)
+
+
+# Converts rating to stars
+def get_stars(avg) -> str:
+    rounded_avg = round(avg)
+
+    res = "★" * (rounded_avg // 2)
+    if rounded_avg % 2:
+        res += "½"
+
+    return res
