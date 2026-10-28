@@ -67,7 +67,6 @@ A few additional improvements include:
 
 - Adding unitests to try and catch any more bugs.
 - Ability to customise the output table (possibly via `.yaml` or `.toml`).
-- Enhanced table output (e.g. more colours, ASCII art, more useful popularity output (the numbers could be confusing)).
 - More filters, user should be able to filter out unreleased films or films without a release date.
 - Add the option to search for films containing two or more cast/crew.
 - Additional options after generating the table (e.g. ability to reorder, or create a new query).
