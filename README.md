@@ -64,8 +64,7 @@ A few additional improvements include:
 - Fixing the bug that causes the app to crash if you CTRL+C out of a selection menu (e.g. CTRL+C-ing out of the cast/crew confirmation menu leads to a `None` value getting passed and causing an error).
 - Adding unitests to try and catch any more bugs.
 - Ability to customise the output table (possibly via `.yaml` or `.toml`).
-- Improved ratings, ideally ratings would be weighted to account for `vote_count` and `vote_average`. Highly rated films with a few dozen ratings shouldn't out rank films with 10000s of ratings.
-- Enhanced table output (e.g. more colours, ASCII art, Unicode star symbols in place of number ratings (i.e. ★ and ☆), more useful popularity output (the numbers could be confusing)).
+- Enhanced table output (e.g. more colours, ASCII art, more useful popularity output (the numbers could be confusing)).
 - More filters, user should be able to filter out unreleased films or films without a release date.
 - Add the option to search for films containing two or more cast/crew.
 - Additional options after generating the table (e.g. ability to reorder, or create a new query).
