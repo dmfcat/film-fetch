@@ -2,6 +2,7 @@ from math import ceil, floor
 
 from rich.console import Console
 from rich.table import Table
+from rich.text import Text
 
 from .genre_ids import GENRE_IDS
 
@@ -16,15 +17,14 @@ def print_raw(person, films) -> None:
 # Table formatted output
 def print_formatted(person, films) -> None:
     table = Table(
-        title=f"\n***** FILMS STARRING: {person.get('name')} *****",
-        highlight=True,
+        title=f"\n★★★★★ FILMS STARRING: {person.get('name')} ★★★★★",
         leading=1,
     )
 
-    table.add_column("Date", justify="right", no_wrap=True)
+    table.add_column("Date", justify="right", highlight=True, no_wrap=True)
     table.add_column("Title")
     table.add_column("Genres")
-    table.add_column("Rating")
+    table.add_column("Rating", style="bold yellow")
     table.add_column("Popularity")
 
     # Add films to table
