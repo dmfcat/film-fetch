@@ -13,6 +13,5 @@ wheels/
 .env
 
 # VHS files
-demo.gif
 demo.mp4
 demo.webm
