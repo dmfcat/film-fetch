@@ -4,6 +4,10 @@ CLI tool that gets the filtered filmography based on cast/crew, genres, and rele
 
 This tool offers an easy way to look up the filmography of any actor, director, or other crew from the terminal and outputs an easily readable table. I consider myself both a film buff and a fan of the terminal, which is why I opted for a CLI tool.
 
+## Demo Video
+
+![Demo](demo.gif)
+
 ## Running
 
 Make sure you have [Python](https://www.python.org/downloads/), [git](https://git-scm.com/install/) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed. Then run the following commands in your terminal:
@@ -69,10 +73,6 @@ A few additional improvements include:
 - Additional options after generating the table (e.g. ability to reorder, or create a new query).
 - Add an export option to the above options, so the user can generate `.csv` or `.pdf` file based on the output.
 - Further code optimisation, some functions have repeated code.
-
-## Demo Video
-
-![Demo](demo.gif)
 
 ## Third Party Dependencies
 
