@@ -73,7 +73,7 @@ A few additional improvements include:
 
 ## Demo Video
 
-[demo.webm](https://github.com/user-attachments/assets/2270c42b-d9c8-41dc-97bc-3b2c37db4412)
+![Demo](demo.gif)
 
 ## Third Party Dependencies
 
