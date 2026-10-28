@@ -44,7 +44,12 @@ def add_weighted_ratings(films) -> list:
 
 
 def sort_films(films, order) -> list:
-    order = order.split()
+    # Stops CTRL+C errors related to CTRL+Cing out of order selection
+    try:
+        order = order.split()
+    except AttributeError:
+        order = ["Year", "(Descending)"]
+
     ele = SORT_OPTIONS[order[0]]
 
     if order[1] == "(Ascending)":
