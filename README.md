@@ -6,7 +6,7 @@ This tool offers an easy way to look up the filmography of any actor, director, 
 
 ## Demo Video
 
-![Demo](demo.gif)
+![Demo](demo/demo.gif)
 
 ## Running
 
