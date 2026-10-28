@@ -1,9 +1,3 @@
-# NOTE: Potential extra features?
-# TODO: Enchnce formatted output (more colours?)
-# TODO: Add option to results allowing user to query again, reorder or quit
-# TODO: Add export option to results, export as .csv?
-# TODO: Allow for searching for multiple cast/crew
-
 from .output import print_formatted
 from .query import load_api_key
 from .title import print_title
