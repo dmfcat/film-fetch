@@ -9,22 +9,26 @@ from .genre_ids import GENRE_IDS
 
 # Plaintext output
 def print_raw(person, films) -> None:
-    print(f"\n***** FILMS STARRING: {person.get('name')} *****")
+    print(f"\n★★★★★ FILMS STARRING: {person.get('name')} ★★★★★")
     for film in films:
         print(f"{film.get('title')} ({film.get('release_date')})")
 
 
 # Table formatted output
 def print_formatted(person, films) -> None:
+    title = Text(f"\n★★★★★ FILMS STARRING: {person.get('name')} ★★★★★")
+    title.stylize("yellow", 1, 6)  # Style beginning stars
+    title.stylize("yellow", -5)  # Style end stars
+
     table = Table(
-        title=f"\n★★★★★ FILMS STARRING: {person.get('name')} ★★★★★",
-        leading=1,
+        title=title,
+        show_lines=True,
     )
 
     table.add_column("Date", justify="right", highlight=True, no_wrap=True)
-    table.add_column("Title")
+    table.add_column("Title", style="italic")
     table.add_column("Genres")
-    table.add_column("Rating", style="bold yellow")
+    table.add_column("Rating", style="yellow")
     table.add_column("Popularity")
 
     # Add films to table
@@ -41,8 +45,7 @@ def print_formatted(person, films) -> None:
             str(film.get("popularity")),
         )
 
-    console = Console()
-    console.print(table)
+    Console().print(table)
 
 
 # Converts rating to stars
