@@ -2,7 +2,6 @@ import sys
 
 import questionary
 import requests
-from questionary import Choice
 
 from .filter import filter_films, sort_films
 from .genre_ids import GENRES
@@ -25,7 +24,7 @@ def confirm_person(people) -> dict:
         person = questionary.select(
             "Confirm selection:",
             choices=[
-                Choice(title=f"{p.get('name')} ({p.get('dept')})", value=p)
+                questionary.Choice(title=f"{p.get('name')} ({p.get('dept')})", value=p)
                 for p in people
             ],
         ).ask()
