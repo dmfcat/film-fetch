@@ -71,7 +71,6 @@ A few additional improvements include:
 - Add the option to search for films containing two or more cast/crew.
 - Additional options after generating the table (e.g. ability to reorder, or create a new query).
 - Add an export option to the above options, so the user can generate `.csv` or `.pdf` file based on the output.
-- Further code optimisation, some functions have repeated code.
 
 ## Third Party Dependencies
 
