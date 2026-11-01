@@ -1,9 +1,13 @@
+from types import MappingProxyType
+
 # Maps sort options to their associated key
-SORT_OPTIONS = {
-    "Year": "release_date",
-    "Rating": "weighted_average",
-    "Popularity": "popularity",
-}
+SORT_OPTIONS = MappingProxyType(
+    {
+        "Year": "release_date",
+        "Rating": "weighted_average",
+        "Popularity": "popularity",
+    }
+)
 
 
 # Filter filmography based on arguments after person_id
