@@ -1,17 +1,17 @@
 import os
 import sys
 
-import requests
 import tmdbsimple as tmdb
 from dotenv import load_dotenv
+from requests import HTTPError
 
 
 # Fetch list of people, depending on the search term
 def query_person(person: dict) -> list:
     try:
         response = tmdb.Search().person(query=person)
-    except requests.exceptions.HTTPError:
-        raise requests.exceptions.HTTPError("Invalid API key")
+    except HTTPError:
+        raise HTTPError("Invalid API key")
 
     res = []
     # NOTE: Max of 10 people included in the selection
@@ -44,8 +44,8 @@ def query_films(person: dict) -> list:
         else:
             response = tmdb.People(person["id"]).movie_credits().get("cast")
 
-    except requests.exceptions.HTTPError:
-        raise requests.exceptions.HTTPError("Invalid API key")
+    except HTTPError:
+        raise HTTPError("Invalid API key")
 
     return response
 
