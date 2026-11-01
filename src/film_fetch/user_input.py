@@ -1,4 +1,4 @@
-import sys
+from sys import exit
 
 import questionary
 from requests import HTTPError
@@ -15,7 +15,7 @@ def get_person() -> list:
         return query_person(term)
     except (ValueError, HTTPError) as e:
         print(e)
-        sys.exit(1)
+        exit(1)
 
 
 # Ask user to confirm selection if more than 1 result
@@ -34,7 +34,7 @@ def confirm_person(people: list[dict]) -> dict:
     # Prevents errors related to CTRL+Cing out of selection
     if not person:
         print("No cast/crew selected")
-        sys.exit(1)
+        exit(1)
 
     return person
 
@@ -54,7 +54,7 @@ def get_info(person: dict) -> list:
     ).ask()
 
     # Convert year to None if empty
-    if year == "":
+    if not year:
         year = None
 
     # Ordering
@@ -76,7 +76,7 @@ def get_info(person: dict) -> list:
         return sort_films(films, order)
     except (ValueError, HTTPError) as e:
         print(e)
-        sys.exit(1)
+        exit(1)
 
 
 def validate_genres(genres: list) -> bool | str:
