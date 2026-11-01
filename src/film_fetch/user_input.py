@@ -88,7 +88,7 @@ def validate_genres(genres: list) -> bool | str:
 
 def validate_year(year: str) -> bool | str:
     # No answer
-    if year == "":
+    if not year:
         return True
 
     # Invalid length
