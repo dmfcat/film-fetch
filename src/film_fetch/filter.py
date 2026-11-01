@@ -7,12 +7,12 @@ SORT_OPTIONS = {
 
 
 # Filter filmography based on arguments after person_id
-def filter_films(filmography, genres, year) -> list:
+def filter_films(filmography: list[dict], genres: list[int], year: int | None) -> list:
     res = [
         film
         for film in filmography
-        if any(genre in genres for genre in film.get("genre_ids"))
-        and (year is None or year in film.get("release_date")[:4])
+        if any(genre in genres for genre in film["genre_ids"])
+        and (year is None or year in film["release_date"][:4])
     ]
 
     # NOTE: Could include what the selection was in the error message
@@ -23,7 +23,7 @@ def filter_films(filmography, genres, year) -> list:
 
 
 # Adds weighted Bayesian average (v/(v+m) * r)+(m/(v+m) * c)
-def add_weighted_ratings(films) -> list:
+def add_weighted_ratings(films: list[dict]) -> list:
     m = 100  # Represents the cutoff point for minimum votes
     c = 6  # Represents the mean average of every film, arbitrary assumed value
     for film in films:
@@ -34,10 +34,11 @@ def add_weighted_ratings(films) -> list:
     return films
 
 
-def sort_films(films, order) -> list:
+# TODO: Type expression for order needs fixing
+def sort_films(films: list[dict], full_order: str) -> list:
     # Stops errors related to CTRL+Cing out of order selection
     try:
-        order = order.split()
+        order = full_order.split()
     except AttributeError:
         order = ["Year", "(Descending)"]
 

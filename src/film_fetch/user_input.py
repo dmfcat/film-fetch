@@ -19,7 +19,7 @@ def get_person() -> list:
 
 
 # Ask user to confirm selection if more than 1 result
-def confirm_person(people) -> dict:
+def confirm_person(people: list[dict]) -> dict:
     if len(people) > 1:
         person = questionary.select(
             "Confirm selection:",
@@ -40,13 +40,13 @@ def confirm_person(people) -> dict:
 
 
 # Gets additional info, for filtered person's filmography
-def get_info(person) -> list:
+def get_info(person: dict) -> list:
     # Genres
     genre_names = questionary.checkbox(
         "Select genres:", choices=list(GENRES), validate=validate_genres
     ).ask()
 
-    genres = [GENRES.get(g) for g in genre_names or []]
+    genres = [GENRES[g] for g in genre_names]
 
     # Release year
     year = questionary.text(
@@ -79,14 +79,14 @@ def get_info(person) -> list:
         sys.exit(1)
 
 
-def validate_genres(genres) -> bool | str:
+def validate_genres(genres: list) -> bool | str:
     if not genres:
         return "Please select at least one genre"
 
     return True
 
 
-def validate_year(year) -> bool | str:
+def validate_year(year: str) -> bool | str:
     # No answer
     if year == "":
         return True

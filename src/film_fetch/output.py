@@ -8,14 +8,14 @@ from .genre_ids import GENRE_IDS
 
 
 # Plaintext output
-def print_raw(person, films) -> None:
+def print_raw(person: dict, films: list[dict]) -> None:
     print(f"\n★★★★★ FILMS STARRING: {person.get('name')} ★★★★★")
     for film in films:
         print(f"{film.get('title')} ({film.get('release_date')})")
 
 
 # Table formatted output
-def print_formatted(person, films) -> None:
+def print_formatted(person: dict, films: list[dict]) -> None:
     title = Text(f"\n★★★★★ FILMS STARRING: {person.get('name')} ★★★★★")
     title.stylize("yellow", 1, 6)  # Style beginning stars
     title.stylize("yellow", -5)  # Style end stars
@@ -34,14 +34,14 @@ def print_formatted(person, films) -> None:
     # Add films to table
     for film in films:
         # Convert genre ids to names
-        genres = ", ".join([GENRE_IDS[id] for id in film.get("genre_ids")])
+        genres = ", ".join([GENRE_IDS[id] for id in film["genre_ids"]])
 
         # Add rows to table
         table.add_row(
             film.get("release_date"),
             film.get("title"),
             genres,
-            get_stars(film.get("weighted_average")),
+            get_stars(film["weighted_average"]),
             str(film.get("popularity")),
         )
 
@@ -49,7 +49,7 @@ def print_formatted(person, films) -> None:
 
 
 # Converts rating to stars
-def get_stars(avg) -> str:
+def get_stars(avg: float) -> str:
     rounded_avg = ceil(avg)
 
     res = "★" * floor(rounded_avg / 2)

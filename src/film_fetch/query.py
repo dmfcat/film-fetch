@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 
 # Fetch list of people, depending on the search term
-def query_person(person) -> list:
+def query_person(person: dict) -> list:
     try:
         response = tmdb.Search().person(query=person)
     except requests.exceptions.HTTPError:
@@ -33,16 +33,16 @@ def query_person(person) -> list:
 
 # Fetch filmography based on person_id
 # NOTE: Will return unreleased films (potentially unwanted)
-def query_films(person) -> list:
+def query_films(person: dict) -> list:
     try:
         if person.get("dept") != "Acting":
-            films = tmdb.People(person.get("id")).movie_credits().get("crew")
+            films = tmdb.People(person["id"]).movie_credits().get("crew")
             # NOTE: Need to filter by department, otherwise any sort of crew credit gets included
             response = [
                 film for film in films if film.get("department") == person.get("dept")
             ]
         else:
-            response = tmdb.People(person.get("id")).movie_credits().get("cast")
+            response = tmdb.People(person["id"]).movie_credits().get("cast")
 
     except requests.exceptions.HTTPError:
         raise requests.exceptions.HTTPError("Invalid API key")
