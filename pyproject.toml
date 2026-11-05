@@ -1,8 +1,10 @@
 [project]
 name = "film-fetch"
-version = "0.1.0"
+version = "0.2.0"
 description = "Simple CLI tool that returns a list of films containing specified cast/crew and genres"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENCE"]
 authors = [
     { name = "dmfcat", email = "david@dmfcat.net" }
 ]

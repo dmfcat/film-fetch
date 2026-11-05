@@ -81,4 +81,4 @@ A few additional improvements include:
 
 ## Licence
 
-[GPLv3](LICENCE)
+[MIT](LICENCE)
