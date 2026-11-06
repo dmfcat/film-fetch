@@ -1,14 +1,19 @@
-## Film Fetch
+# Film Fetch
 
-CLI tool that gets the filtered filmography based on cast/crew, genres, and release year. Results can be ordered by popularity, ratings, or release year.
+A CLI Python tool that gets the filtered filmography of any cast/crew based on user given genres, and release year. Results can be ordered by popularity, ratings, or year.
 
-This tool offers an easy way to look up the filmography of any actor, director, or other crew from the terminal and outputs an easily readable table. I consider myself both a film buff and a fan of the terminal, which is why I opted for a CLI tool.
+## Features
+
+- Easy to use and visually appealing CLI tool.
+- Queries the TMDB database for the filmography of any cast/crew.
+- Allows for easy filtering based on genre and year
+- Easy to read and informative table output
 
 ## Demo Video
 
 ![Demo](demo/demo.gif)
 
-## Running
+## Getting Started
 
 Make sure you have [Python](https://www.python.org/downloads/), [git](https://git-scm.com/install/) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed. Then run the following commands in your terminal:
 
@@ -46,20 +51,17 @@ uv run film-fetch
 > echo "API_KEY = YOURKEY" > .env
 > ```
 
-## How it Works
+## Usage
+
+Simply enter a name when prompted, if the person exists you will then be asked to select genres, year and how you would like the table ordered. As shown in the demo video above.
+
+## How It Works
 
 See the below UML sequence diagram for an overview of what this app does:
 
 <img width="533" height="934" alt="sequence diagram" src="https://github.com/user-attachments/assets/e3d4cb62-a182-4729-9c5d-64d2eb1857a0" />
 
-For a breakdown of what each file does:
-
-- [`main.py`](src/film_fetch/main.py) handles running all the functions in every file.
-- [`user_input.py`](src/film_fetch/user_input.py) handles allowing the user to enter information. [`questionary`](https://github.com/tmbo/questionary) is used for assisting the user in entering information. The tool first asks for cast/crew, if multiple matches for a search are found the user is presented a list to select from. If no matches are found the app terminates early. After this the user then picks what genres and release year they want to search for. They are also given an option to choose what order the resulting table is in.
-- [`query.py`](src/film_fetch/query.py) handles communicating with the TMDB REST API, using [`requests`](https://github.com/psf/requests). Information the user inputs from `user_input.py` is used for the queries. The API is queried twice, first to get a list of people, and then to get the entire filmography of the selected person. Before the tool does anything, however, it first 'loads' the API key using [`python-dotenv`](https://github.com/theskumar/python-dotenv). If the API key doesn't exist the app terminates early and the user is directed towards this README to fix the problem.
-- [`filter.py`](src/film_fetch/filter.py) filters the list of films obtained from `query.py`, based on the selected genres and release year. The code for sorting the filmography is also in this file.
-- [`output.py`](src/film_fetch/output.py) contains the code for outputting the filtered filmography. [`rich`](https://github.com/Textualize/rich) is used for formatting, the outputted filmography is in a table.
-- [`genre_ids.py`](src/film_fetch/genre_ids.py) contains two constants, one mapping genre names to their TMDB ID number and other doing the opposite. These constants are used by `filter.py` and `output.py`.
+The TMDB API is queried twice, first to get the selected person and a second time to get their filmography, which then gets filtered depending on the selected genres and year.
 
 ## Future Improvements
 
@@ -71,13 +73,6 @@ A few additional improvements include:
 - Add the option to search for films containing two or more cast/crew.
 - Additional options after generating the table (e.g. ability to reorder, or create a new query).
 - Add an export option to the above options, so the user can generate `.csv` or `.pdf` file based on the output.
-
-## Third Party Dependencies
-
-- [`python-dotenv`](https://github.com/theskumar/python-dotenv)
-- [`questionary`](https://github.com/tmbo/questionary)
-- [`rich`](https://github.com/Textualize/rich)
-- [`requests`](https://github.com/psf/requests)
 
 ## Licence
 

@@ -1,7 +1,7 @@
 from sys import exit
 
 import questionary
-from requests import HTTPError
+import requests
 
 from .filter import filter_films, sort_films
 from .genre_ids import GENRES
@@ -13,7 +13,7 @@ def get_person() -> list:
     term = questionary.text("Enter cast or crew:").ask()
     try:
         return query_person(term)
-    except (ValueError, HTTPError) as e:
+    except (ValueError, requests.HTTPError) as e:
         print(e)
         exit(1)
 
@@ -74,7 +74,7 @@ def get_info(person: dict) -> list:
     try:
         films = filter_films(query_films(person), genres, year)
         return sort_films(films, order)
-    except (ValueError, HTTPError) as e:
+    except (ValueError, requests.HTTPError) as e:
         print(e)
         exit(1)
 
