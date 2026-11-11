@@ -15,7 +15,7 @@ A CLI Python tool that gets the filtered filmography of any cast/crew based on u
 
 ## Getting Started
 
-Make sure you have [Python](https://www.python.org/downloads/), [git](https://git-scm.com/install/) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed. Then run the following commands in your terminal:
+Make sure you have [Python](https://www.python.org/downloads/), [Git](https://git-scm.com/install/) and [uv](https://docs.astral.sh/uv/getting-started/installation/) installed. Then run the following commands in your terminal:
 
 1. Clone the repo
 
